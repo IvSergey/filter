@@ -12,22 +12,15 @@
     <form id="form-main">
         <div id="wrapper">
             <div class="div-wrapper">
-                <select name="fields" class="fields" >
-                    <option value="Text field">Text field</option>
-                    <option value="Number field">Number field</option>
+                <select name="field" class="field" >
+                    <option value="text" selected>Text field</option>
+                    <option value="number">Number field</option>
                 </select>
-                <select class="text">
-                    <option selected value="Containing">Containing</option>
-                    <option value="Exactly matching">Exactly matching</option>
-                    <option value="Begins with">Begins with</option>
-                    <option value="Ends with">Ends with</option>
+                <select name="kind" class="kind">
+                   
                 </select>
-                <select class="number">
-                    <option selected value="Equal">Equal</option>
-                    <option value="Greater than">Greater than</option>
-                    <option value="Less than">Less than</option>
-                    <input type="text">
-                </select>
+                
+                <input type="text">
                 <!-- <button id="delete">X</button> -->
             </div>
         </div>

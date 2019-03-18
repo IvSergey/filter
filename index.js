@@ -7,33 +7,28 @@ const wrapper = document.getElementById('wrapper');
 // buttonDelete.addEventListener('click', (e) => {
 //     e.preventDefault();
 //     console.log('!!!!');
-//     // console.log(e.target.parentNode);
+//     console.log(e.target);
 //     // e.target.parentNode.remove(); 
+//     wrapper.remove(e.target.parentNode)
 
 // })
-const templateWrapper = `<select name="fields" class="fields" >
-            <option value="Text field">Text field</option>
-            <option value="Number field">Number field</option>
-        </select>
-        <select class="text">
-            <option selected value="Containing">Containing</option>
-            <option value="Containing">Exactly matching</option>
-            <option value="Containing">Begins with</option>
-            <option value="Containing">Ends with</option>
-        </select>
-        <select class="number">
-            <option selected value="Equal">Equal</option>
-            <option value="Greater than">Greater than</option>
-            <option value="Less than">Less than</option>
-        </select>
-        <input type="text">
-        `
+const templateWrapper = `<select name="field" class="field" >
+<option value="text" selected>Text field</option>
+<option value="number">Number field</option>
+</select>
+<select name="kind" class="kind">
+
+</select>
+
+<input type="text">
+        
+`
 
 const addCondition = document.querySelector('#add-condition');
 addCondition.addEventListener('click', (e) => {
     e.preventDefault();
     var newDiv = document.createElement('div');
- 
+    
     newDiv.classList.add('div-wrapper');
     newDiv.innerHTML = templateWrapper;
 
@@ -50,26 +45,30 @@ addCondition.addEventListener('click', (e) => {
      
     // console.log(document.getElementById('wrapper'),'!!!');
     wrapper.appendChild(newDiv);
-    console.log(wrapper.firstElementChild)
+    // console.log(wrapper.firstElementChild)
 })
 
 
-let number = document.querySelector(".number");
-let text = document.querySelector(".text");
-const form = document.querySelector("#form-main");
-let fields = document.querySelector(".fields")
 
 
-fields.addEventListener("click", (e)=>{
-    if (form.elements.fields.value == "Number field"){
-        number.style.display="inline-block";
-        text.style.display="none";
-        e.preventDefault();
-    }
-    else if (form.elements.fields.value == "Text field"){
-        text.style.display="inline-block";
-        number.style.display="none";
-    }
-        
-    
-})
+
+var kinds = {
+    text: ["Containing", "Exactly matching", "Begins with", "Ends with"],
+    number: ["Equal", "Greater than", "Less than"]
+};
+
+
+
+var field = document.querySelector(".field");
+var kind = document.querySelector(".kind");
+window.onload = selectField;
+field.onchange = selectField;
+
+function selectField(ev){
+  kind.innerHTML = "";
+  var c = this.value || "text", o;
+  for(let i = 0; i < kinds[c].length; i++){
+    o = new Option(kinds[c][i],i,false,false);
+    kind.add(o);
+  };
+}
