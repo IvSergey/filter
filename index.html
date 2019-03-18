@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form id="form-main">
+        <div id="wrapper">
+            <div class="div-wrapper">
+                    <select name="fields" class="fields" >
+                        <option value="Text field">Text field</option>
+                        <option value="Number field">Number field</option>
+                    </select>
+                    <select class="text">
+                        <option selected value="Containing">Containing</option>
+                        <option value="Exactly matching">Exactly matching</option>
+                        <option value="Begins with">Begins with</option>
+                        <option value="Ends with">Ends with</option>
+                    </select>
+                    <select class="number">
+                        <option selected value="Equal">Equal</option>
+                        <option value="Greater than">Greater than</option>
+                        <option value="Less than">Less than</option>
+                    </select>
+                    <!-- <button id="delete">X</button> -->
+            </div>
+        </div>
+        
+        <button id="add-condition">+Add condition</button>
+        <hr>
+        <div id="buttons-control">
+            <button>Apply</button>
+            <button>Clear Filter</button>
+        </div>
+        
+       </form>
+       
+       <script src="./index.js"></script>
+</body>
+
+</html>
